@@ -1,8 +1,13 @@
 {
   "name": "html-template-lite",
   "version": "1.0.0",
-  "description": "TODO: add desc",
-  "keywords": [],
+  "description": "Simple template with html code escape",
+  "keywords": [
+    "html",
+    "template",
+    "escape",
+    "sanitize"
+  ],
   "author": {
     "name": "Beeno Tung",
     "email": "aabbcc1241@yahoo.com.hk",
