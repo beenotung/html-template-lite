@@ -1,6 +1,6 @@
 # html-template-lite
 
-Simple template with html code escape
+Simple template with html code escape for both node.js and browser.
 
 [![npm Package Version](https://img.shields.io/npm/v/html-template-lite.svg?maxAge=3600)](https://www.npmjs.com/package/html-template-lite)
 
