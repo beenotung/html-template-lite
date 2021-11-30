@@ -38,6 +38,10 @@
     "test": "test"
   },
   "files": [
+    "src",
+    "example/demo.html",
+    "example/*.ts",
+    "example/package.json",
     "dist"
   ],
   "dependencies": {},
