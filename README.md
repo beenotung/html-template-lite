@@ -55,6 +55,21 @@ npm install html-template-lite
 
 Details see [example/demo.html](./example/demo.html)
 
+## Typescript Signature
+
+```typescript
+export function render(template: string, data: object): string
+```
+
+## Usage Guideline
+
+The `render()` function takes a html template in string, and a data object. It substitutes the object fields into the template and return composed html fragment in string.
+
+In the template,
+
+- use `{field}` to sanitize and substitute literal (act like setting `element.textContent`)
+- use `[field]` to substitute trusted html fragment (act like setting `element.innerHTML`)
+
 ## Usage Example
 
 ### Substitute Context Object
