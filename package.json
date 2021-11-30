@@ -1,6 +1,6 @@
 {
   "name": "html-template-lite",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple template with html code escape for both node.js and browser",
   "keywords": [
     "html",
