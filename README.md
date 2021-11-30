@@ -33,6 +33,28 @@ npm install html-template-lite
 
 ### Direct usage from browser
 
+```html
+<main class="demo"></main>
+
+<template class="demo">
+  <p>username: {username}</p>
+  <p>version: v{version}</p>
+</template>
+
+<script type="module">
+  let main = document.querySelector('main.demo')
+  let template = document.querySelector('template.demo')
+  main.textContent = 'loading html-template-lite ...'
+  import { render } from 'https://cdn.jsdelivr.net/npm/html-template-lite/dist/esm/index.js'
+  main.innerHTML = render(template.innerHTML, {
+    username: '<b>o</b>',
+    version: '1.2.3',
+  })
+</script>
+```
+
+Details see [example/demo.html](./example/demo.html)
+
 ## Usage Example
 
 ### Substitute Context Object
@@ -53,6 +75,8 @@ console.log(html)
 <div>Rank: 42</div>
 */
 ```
+
+Details see [example/demo.ts](./example/demo.ts)
 
 ### Iterate over list
 
@@ -80,3 +104,5 @@ console.log(body)
 </ul>
 */
 ```
+
+Details see [example/demo.ts](./example/demo.ts)

@@ -1,4 +1,28 @@
-<script
-  type="module"
-  src="https://cdn.jsdelivr.net/npm/html-template-lite/dist/esm/index.js"
-></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html-template-lite Demo</title>
+  </head>
+  <body>
+    <main class="demo"></main>
+
+    <template class="demo">
+      <p>username: {username}</p>
+      <p>version: v{version}</p>
+    </template>
+
+    <script type="module">
+      let main = document.querySelector('main.demo')
+      let template = document.querySelector('template.demo')
+      main.textContent = 'loading html-template-lite ...'
+      import { render } from 'https://cdn.jsdelivr.net/npm/html-template-lite/dist/esm/index.js'
+      main.innerHTML = render(template.innerHTML, {
+        username: '<b>o</b>',
+        version: '1.2.3',
+      })
+    </script>
+  </body>
+</html>
