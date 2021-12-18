@@ -31,7 +31,7 @@ or
 npm install html-template-lite
 ```
 
-### Direct usage from browser
+### Direct usage from browser (via script over CDN)
 
 ```html
 <main class="demo"></main>
