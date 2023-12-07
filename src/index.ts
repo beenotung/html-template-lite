@@ -1,4 +1,11 @@
-export function render(template: string, data: object) {
+export function render(
+  template: string,
+  data: object[] | object,
+  separator: string = '',
+): string {
+  if (Array.isArray(data)) {
+    return data.map(data => render(template, data)).join(separator)
+  }
   Object.entries(data).forEach(([key, value]) => {
     const strValue = String(value)
     const htmlValue = escape(strValue)

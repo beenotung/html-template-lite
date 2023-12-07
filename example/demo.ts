@@ -15,7 +15,7 @@ console.log(html)
 */
 
 const listTemplate = /* html */ `<ul>
-[listHTML]
+[items]
 </ul>`
 const itemTemplate = /* html */ `  <li><a href="{url}">{title}</a></li>`
 
@@ -24,9 +24,11 @@ const items = [
   { url: 'https://gitlab.com', title: 'Gitlab' },
   { url: 'https://bitbucket.org', title: 'Bitbucket' },
 ]
-const listHTML = items.map(item => render(itemTemplate, item)).join('\n')
-const body = render(listTemplate, { listHTML })
+const body = render(listTemplate, {
+  items: render(itemTemplate, items, '\n'),
+})
 console.log(body)
+
 /*
 <ul>
 <li><a href="https://github.com">Github</a></li>

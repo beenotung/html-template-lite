@@ -13,6 +13,47 @@ describe('Template TestSuit', () => {
       }),
     ).to.equals('username: bob, rank: 20')
   })
+  it('should render single item', () => {
+    let template = /* html */ `
+<ul>
+  <li><a href="{href}">{name}</a></li>
+</ul>
+`
+    let item = {
+      href: '/product.html?name=apple',
+      name: 'apple',
+    }
+    expect(render(template, item)).to.equals(/* html */ `
+<ul>
+  <li><a href="/product.html?name=apple">apple</a></li>
+</ul>
+`)
+  })
+  it('should render multiple items', () => {
+    let listTemplate = /* html */ `
+<ul>[items]
+</ul>
+`
+    let itemTemplate = /* html */ `
+  <li><a href="{href}">{name}</a></li>`
+    let items = [
+      {
+        href: '/product.html?name=apple',
+        name: 'apple',
+      },
+      {
+        href: '/product.html?name=banana',
+        name: 'banana',
+      },
+    ]
+    expect(render(listTemplate, { items: render(itemTemplate, items) })).to
+      .equals(/* html */ `
+<ul>
+  <li><a href="/product.html?name=apple">apple</a></li>
+  <li><a href="/product.html?name=banana">banana</a></li>
+</ul>
+`)
+  })
   Object.entries({
     '&': '&amp;',
     '<': '&lt;',

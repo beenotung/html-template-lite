@@ -60,14 +60,22 @@ Details see [example/demo.html](./example/demo.html)
 ## Typescript Signature
 
 ```typescript
-export function render(template: string, data: object): string
+export function render(
+  template: string,
+  data: object[] | object,
+  separator: string = '',
+): string
 ```
 
 ## Usage Guideline
 
-The `render()` function takes a html template in string, and a data object. It substitutes the object fields into the template and return composed html fragment in string.
+The `render()` function takes a html `template` in string, and a `data`` object. It substitutes the object fields into the template and return composed html fragment in string.
 
-In the template,
+If the `data` is an array of object, it will be mapped over the `render()` function again and joined with the given `separator`.
+
+If the separator is not specified, each rendered html fragment will be joined without extra characters.
+
+### Placeholder Syntax in `template`
 
 - use `{field}` to sanitize and substitute literal (act like setting `element.textContent`)
 - use `[field]` to substitute trusted html fragment (act like setting `element.innerHTML`)
@@ -95,13 +103,13 @@ console.log(html)
 
 Details see [example/demo.ts](./example/demo.ts)
 
-### Iterate over list
+### Substitute List of Objects
 
 ```typescript
 import { render } from 'html-template-lite'
 
 let listTemplate = `<ul>
-[listHTML]
+[items]
 </ul>`
 let itemTemplate = `  <li><a href="{url}">{title}</a></li>`
 
@@ -110,9 +118,11 @@ let items = [
   { url: 'https://gitlab.com', title: 'Gitlab' },
   { url: 'https://bitbucket.org', title: 'Bitbucket' },
 ]
-let listHTML = items.map(item => render(itemTemplate, item)).join('\n')
-let body = render(listTemplate, { listHTML })
-console.log(body)
+
+let html = render(listTemplate, {
+  items: render(itemTemplate, items, '\n'),
+})
+console.log(html)
 /*
 <ul>
   <li><a href="https://github.com">Github</a></li>
