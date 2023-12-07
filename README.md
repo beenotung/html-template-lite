@@ -9,6 +9,8 @@ Loops and conditions are intentionally not handled by this library. They can be 
 ## Features
 
 - [x] Extremely simple, the [source code](./src/index.ts) is below 1KB
+- [x] Cross-Platform, works in browser and node.js
+- [x] Secure, prevent XSS attack (malicious script injection) with HTML escape characters
 - [x] 100% test coverage with ts-mocha
 
 ## Installation
