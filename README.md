@@ -46,7 +46,7 @@ npm install html-template-lite
   let template = document.querySelector('template.demo')
   main.textContent = 'loading html-template-lite ...'
 
-  import { render } from 'https://cdn.jsdelivr.net/npm/html-template-lite/dist/esm/index.js'
+  import { render } from 'https://cdn.jsdelivr.net/npm/html-template-lite@1/dist/esm/index.js'
 
   main.innerHTML = render(template.innerHTML, {
     username: '<b>o</b>',
