@@ -1,7 +1,7 @@
 export function render(
   template: string,
   data: object[] | object,
-  separator: string = '',
+  separator = '',
 ): string {
   if (Array.isArray(data)) {
     return data.map(data => render(template, data)).join(separator)
